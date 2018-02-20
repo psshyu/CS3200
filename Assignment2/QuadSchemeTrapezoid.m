@@ -1,7 +1,8 @@
-function [x, w] = CompTrapezoidPairs(a,b,N)
+function [x, w] = QuadSchemeTrapezoid(a,b,N)
     % This function returns 2 vectors, x and w, which are the values
     % of xi and wi as obtained via composite trapezoid rule. Note that
     % this doesn't calculate any summations.
+    
     % a = first point of integral 
     % b = final point of interval
     % N = number of intervals

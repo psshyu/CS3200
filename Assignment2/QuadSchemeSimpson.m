@@ -1,7 +1,8 @@
-function [x, w] = CompSimpsonPairs(a,b,N)
+function [x, w] = QuadSchemeSimpson(a,b,N)
     % This function returns 2 vectors, x and w, which are the values
     % of xi and wi as obtained via composite Simpson formula. Note that
     % this doesn't calculate any summations.
+    
     % a = first point of integral 
     % b = final point of interval
     % N = number of intervals
@@ -33,7 +34,7 @@ function [x, w] = CompSimpsonPairs(a,b,N)
         w(odd_i) = wi_odd;                       % appends wi to w vector
     end
     
-    % i = 2N + 1 calculation
+    % i = 2N + 1 calculation; overwrites the last 2N+1 calculation
     xLast = a + (2*N) * delta_x;        % calculates xi value                       
     x(2*N+1) = xLast;                   % appends xN value to x vector
     w(2*N+1) = wi_ends;                 % appends wN value to w vector
