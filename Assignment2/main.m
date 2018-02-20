@@ -1,3 +1,6 @@
 
-
-[xi, wi] = CompTrapezoid(1,10,28,'2x^2+x+1');
+a = 1;
+b = 2;
+N = 28;
+[xi, wi] = CompTrapezoidPairs(a,b,N);
+%[xi, wi] = CompSimpsonPairs(a,b,N);
