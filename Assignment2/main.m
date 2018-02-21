@@ -6,4 +6,4 @@
 %[xi, wi] = QuadSchemeTrapezoid(a,b,N);
 %[xi, wi] = QuadSchemeSimpson(a,b,N);
 
-GaussianQuad(0,2*pi,2, 'x + 1');
+GaussianQuad(0, 2*pi, 2, @(x)(1+sin(x).*cos(2.*x./3).*sin(4.*x)));

@@ -1,4 +1,4 @@
-function wif = GaussianQuad(a,b,N,f)
+function summation = GaussianQuad(a,b,N,f)
 
     % a = first point of integral 
     % b = final point of interval
@@ -7,6 +7,7 @@ function wif = GaussianQuad(a,b,N,f)
     
     wi = zeros(5,1);                     % pre-allocate vector sized 5 for wi values
     xi = zeros(5,1);                     % pre-allocate vector sized 5 for xi values
+    
     switch N
         case 1
             xi(1) = 0;
@@ -46,20 +47,15 @@ function wif = GaussianQuad(a,b,N,f)
         otherwise
             fprintf('Invalid N! Please ensure N is between 1 and 5 (inclusively');
     end
-    %x = x(x ~= 0);
-    %w = w(w ~= 0);
+
     fprintf('%i ', xi);
-    wif = zeros(5,1);
     
-    f = @(x) f;
     summation = 0;
     ba_div2 = (b-a)/2;
     ab_div2 = (a+b)/2;
     
     for i=1:N
-        xi = ba_div2 * xi(i) + ab_div2;
-        func = f(xi);
-        sum = wi(i)* func;
+        summation = summation + wi(i)*f(ba_div2 * xi(i) + ab_div2);
     end
     
     %summation = summation * ba_div2;

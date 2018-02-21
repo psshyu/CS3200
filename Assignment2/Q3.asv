@@ -53,5 +53,5 @@ end
     legend show;                      % of equidistant and cheby points
     legend('Midpoint Rule', 'Trapezoid Rule', 'Simpson Rule');
     grid on;
-    title(sprintf('Newton-Cotes Covergence Across N partitions'));
+    title(sprintf('Newton-Cotes Covergence Across d)', N_parts));
 
