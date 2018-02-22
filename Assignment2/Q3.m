@@ -36,13 +36,7 @@ for idx = 1:numel(N)                % for loop to go thru all N-values
     title(sprintf('Newton-Cotes Covergence (N = %2.0f)', N_parts));
     %}
     
-    % the code below was used to save figures into the output folder as
-    % they were generated
-    %{
-    folder = 'C:\Users\Skylar\Documents\GitHub\CS3200\Assignment2\output';
-    fileName = sprintf('ConvPlot_N%d.jpg',N_parts);
-    saveas(gcf, fullfile(folder, fileName), 'jpg');
-    %}
+
 end
 
     % generate plots
