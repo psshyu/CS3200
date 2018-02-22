@@ -18,5 +18,13 @@ for idx = 1:numel(N)                % for loop to go thru all N-values
     integralTrue(idx) = integral(func,a,b);
 end
 
+iplot = iplot + 1;
+figure(iplot)                     % new figure
+plot(N, integralGauss, '-', N, integralTrue, 'g');
+legend show;                      % of equidistant and cheby points
+legend('Gauss Quadrature', 'True Integration');
+grid on;
+title(sprintf('Gaussian Covergence to True Integral Across N-partitions'));
+
 
     
