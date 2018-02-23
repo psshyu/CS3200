@@ -10,11 +10,8 @@ function summation = GaussianQuad(a,b,N,f)
     ba_div2 = (b-a)/2;                  % hard coded this as it's used to map xi from [-1 1] to [a b]    
     ab_div2 = (a+b)/2;                  % see above line's comment
     
-    % Mapping! So all the {wi, xi} values given to us were over [-1, 1],.
-    % While all the wi values remained the same, the xi values had to be
-    % mapped under the following formula:
-    %       xi_new = (ba_div2 * xi_old + ab_div2)
-    % This had to be done for all xi values from N = 1...5. 
+    % Mapping! So all the {wi, xi} values given to us were over [-1, 1],
+    % 
     switch N
         case 1
             xi(1) = 0 + ab_div2;
@@ -51,13 +48,18 @@ function summation = GaussianQuad(a,b,N,f)
             wi(4) = (322+13*sqrt(70))/900;
             xi(5) = ba_div2 * (1/3) * sqrt(5+2*sqrt(10/7)) + ab_div2;
             wi(5) = (322-13*sqrt(70))/900;
-        otherwise % in case if someone decides to be all fancy and enter N = 5000
+        otherwise
             fprintf('Invalid N! Please ensure N is between 1 and 5 (inclusively');
     end
+
+    fprintf('%i ', xi);
     
-    summation = 0;  % clear/ reset summation to 0.
+    summation = 0;
     
-    for i=1:N       % N determines how many times we have to piecewise-sum this integration
-        summation = summation + wi(i) * f(ba_div2 * xi(i) + ab_div2); % calculating the summation
+    for i=1:N
+        summation = summation + wi(i) * f(ba_div2 * xi(i) + ab_div2);
     end
+    
+    %summation = summation * ba_div2;
+    %fprintf('\n %i ', summation);
 end
