@@ -68,9 +68,9 @@ errorConvergeSimp = integralTrue - integralSimp;
 figure('Name', 'Midpoint Rule Convergence')         % figure title              
 plot(N, integralMid, '-', N, integralTrue, 'g');    % plotting Composite Midpoint against true integration
 legend show;                                        % show legends!
-legend('Composite Midpoint Rule', 'True Integration'); % set legends
+legend('Midpoint Rule', 'True Integration');        % set legends
 grid on;                                            % turn grids on
-title(sprintf('Composite Midpoint Rule Covergence to True Integral with Respect to N-partitions')); % plot title
+title(sprintf('Midpoint Rule Covergence to True Integral with Respect to N-partitions')); % plot title
 xlabel('N')                                         % x-axis label
 ylabel('Integration Values')                        % y-axis label
 
@@ -78,9 +78,9 @@ ylabel('Integration Values')                        % y-axis label
 figure('Name', 'Trapezoid Rule Convergence')        % figure title              
 plot(N, integralTrap, '-', N, integralTrue, 'g');   % plotting Composite Trapezoid against true integration
 legend show;                                        % show legends!
-legend('Composite Trapezoid Rule', 'True Integration'); % set legends
+legend('Trapezoid Rule', 'True Integration');       % set legends
 grid on;                                            % turn grids on
-title(sprintf('Composite Trapezoid Rule Covergence to True Integral with Respect to N-partitions')); % plot title
+title(sprintf('Trapezoid Rule Covergence to True Integral with Respect to N-partitions')); % plot title
 xlabel('N')                                         % x-axis label
 ylabel('Integration Values')                        % y-axis label
 
@@ -88,7 +88,7 @@ ylabel('Integration Values')                        % y-axis label
 figure('Name', "Simpson's Rule Convergence")        % figure title                 
 plot(N, integralSimp, '-', N, integralTrue, 'g');   % plotting Composite Simpson's against true integration
 legend show;                                        % show legends!
-legend("Composite Simpson's Rule", 'True Integration'); % set legends
+legend("CSimpson's Rule", 'True Integration');       % set legends
 grid on;                                            % turn grids on
 title(sprintf("Simpson's Formula Covergence to True Integral with Respect to N-partitions")); % plot title
 xlabel('N')                                         % x-axis label

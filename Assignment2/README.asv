@@ -4,8 +4,7 @@
 ** Skylar Shyu | u1039726 **
 ****************************
 
-Please extract ALL files from the ZIP! 
-
+Please extract ALL files from the ZIP! Because only Question 3 required a
 ***********************
  Compiling and Running
 ***********************
@@ -33,6 +32,6 @@ Lastly, f represents the function that needs to be integrated; f MUST be in the 
    3) f = @(x)(x.^2+2) -- THIS IS PERFECT. This will make the function happy. :)
 
 *Question 3*
-Q3NewtonCotes.m involves all the questions in 3 involving the Newton-Cotes rules/formulas in Question 1 above. Specifically, it addresses the point involving convergence plots and error estimation for Trapezoidal Rule, Simpson's Rule, and Richardson Extrapolation. 
+Q3NewtonCotes involves all the questions in 3 involving the Newton-Cotes rules/formulas in Question 1 above. Specifically, it addresses the point involving convergence plots and error estimation for Trapezoidal Rule, Simpson's Rule, and Richardson Extrapolation. 
 Q3GaussianQuads.m involves the last question posed in 3 (Report the results for N = 2,3,4,5 for the Gaussian quadratures...) 
-To grade Question 3, run main.m. Your screen will explode in a glory of figures plots, as Tajo requested.  
+

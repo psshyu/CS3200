@@ -1,0 +1,8 @@
+
+while(true)
+    prompt = "Please enter the number corresponding to the action you wish to take:\n 0) Exit \n 1) Q3Newton Cotes 2)" 
+    x = input(prompt);
+    str = input(prompt,'s')
+    Q3GaussianQuads
+    Q3NewtonCotes
+end
