@@ -56,12 +56,11 @@ for idx = 1:numel(N)                % for loop to go thru all N-values
     errorSimpson(idx) = ((b - a)/2880).*(delta_x_simpson.^4).*f4_eta;
     
     % Error Calculations Using Richardson's Exterpolation
-    [xTrap2N, wTrap2N] = QuadSchemeTrapezoid(a,b,N_parts*2);  % Trapezoid Rule pairs w/ 2*N subintervals
-    [xSimp2N, wSimp2N] = QuadSchemeSimpson(a,b,N_parts*2);    % Simpson's Formula pairs w/ 2*N subintervals
-    integralTrap2N(idx) = weightPairSum(func, xTrap2N, wTrap2N); % Trapezoid sum w/ 2N subintervals
-    integralSimp2N(idx) = weightPairSum(func, xSimp2N, wSimp2N); % Simpson's sum w/ 2N subintervals
-    errorTrapRichard = RichardsonExterp(integralTrap(idx), integralTrap2N(idx));
-    errorSimpRichard = RichardsonExterp(integralSimp(idx), integralSimp2N(idx));
+    [xTrap2N, wTrap2N] = QuadSchemeTrapezoid(a,b,N_parts*2);  % Trapezoid Rule pairs with 2*N subintervals
+    [xSimp2N, wSimp2N] = QuadSchemeSimpson(a,b,N_parts*2);    % Simpson's Formula pairs with 2*N subintervals
+    
+    
+    
 end
 
 % Error vectors via subtracting the exact integral by the composite

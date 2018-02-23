@@ -1,0 +1,7 @@
+% Calculates the error given by the Richardson's Exterpolation function.
+% Instead of using delta_x as an input variable, N is used.
+function errorh = RichardsonExterp(NIntegral, twoNIntegral)
+    % NIntegral = Integral of function with N-subintervals
+    % twoN
+    errorh = (4/3)*(-NIntegral+twoNIntegral);
+end
