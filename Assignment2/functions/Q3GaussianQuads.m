@@ -1,4 +1,4 @@
-a = 0; b = 2 * pi;     % the domain we integrate over                             
+a = 0; b = 2*pi;     % the domain we integrate over                             
 N = [2 3 4 5];         % all the different Ns we need to calculate
 
 % Save parameters

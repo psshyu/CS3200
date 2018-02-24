@@ -4,7 +4,7 @@
 ** Skylar Shyu | u1039726 **
 ****************************
 
-Please extract ALL files from the ZIP! As requested, figures and plots may be found in the output folder, while the script and any dependent functions may be found in the functions folder.
+Please extract ALL files from the ZIP! As 
 
 ***********************
  Compiling and Running
@@ -35,4 +35,4 @@ Lastly, f represents the function that needs to be integrated; f MUST be in the 
 *Question 3*
 Q3NewtonCotes.m involves all the questions in 3 involving the Newton-Cotes rules/formulas in Question 1 above. Specifically, it addresses the point involving convergence plots and error estimation for Trapezoidal Rule, Simpson's Rule, and Richardson Extrapolation. 
 Q3GaussianQuads.m involves the last question posed in 3 (Report the results for N = 2,3,4,5 for the Gaussian quadratures...) 
-To grade Question 3, run main.m (located inside the functions directory). Your screen will explode in a glory of figures plots, as Tajo requested.  
+To grade Question 3, run main.m. Your screen will explode in a glory of figures plots, as Tajo requested.  
