@@ -14,8 +14,7 @@ errorRichardson = zeros(numel(N),1);
 zeroError = zeros(numel(N),1);
 
 % Save figure parameters
-assignmentNum = 2;
-type = 'jpg';
+folder = 'C:\Users\Skylar\Documents\GitHub\CS3200\Assignment2\output';
 
 syms x                                  % define symbolic variables
 f = 1+sin(x).*cos(2.*x./3).*sin(4.*x);  % symbolic function
@@ -85,8 +84,7 @@ grid on;                                            % turn grids on
 title(sprintf('Composite Midpoint Rule Covergence to True Integral with Respect to N-partitions')); % plot title
 xlabel('N')                                         % x-axis label
 ylabel('Integration Values')                        % y-axis label
-%fig = gcf;
-%saveFigures(assignmentNum,fig.Name, type);
+saveas(gcf, fullfile(folder, sprintf('MidRuleConv')), 'jpg');
 
 % Convergence plot showing Composite Midpoint Rule Error nearing y=0
 figure('Name', 'Composite Midpoint Rule Error Convergence')         % figure title              
@@ -97,6 +95,7 @@ grid on;                                            % turn grids on
 title(sprintf('Composite Composite Midpoint Rule Covergence to 0 with Respect to N-partitions')); % plot title
 xlabel('N')                                         % x-axis label
 ylabel('Error Yielded by Integration Values')       % y-axis label
+saveas(gcf, fullfile(folder, sprintf('ErrorMidRuleConv')), 'jpg');
 
 % Convergence plot showing Composite Trapezoid Rule and the exact integral
 figure('Name', 'Composite Trapezoid Rule Convergence')        % figure title              
@@ -107,6 +106,7 @@ grid on;                                            % turn grids on
 title(sprintf('Composite Trapezoid Rule Covergence to True Integral with Respect to N-partitions')); % plot title
 xlabel('N')                                         % x-axis label
 ylabel('Integration Values')                        % y-axis label
+saveas(gcf, fullfile(folder, sprintf('TrapRuleConv')), 'jpg');
 
 % Convergence plot showing Composite Trapezoid Rule Error nearing y=0
 figure('Name', 'Composite Trapezoid Rule Error Convergence')         % figure title              
@@ -117,6 +117,7 @@ grid on;                                            % turn grids on
 title(sprintf('Composite Trapezoid Rule Covergence to 0 with Respect to N-partitions')); % plot title
 xlabel('N')                                         % x-axis label
 ylabel('Error Yielded by Integration Values')       % y-axis label
+saveas(gcf, fullfile(folder, sprintf('ErrorTrapRuleConv')), 'jpg');
 
 % Convergence plot showing Composite Simpson's Formula and the exact integral
 figure('Name', "Composite Simpson's Rule Convergence")        % figure title                 
@@ -127,6 +128,7 @@ grid on;                                            % turn grids on
 title(sprintf("Composite Simpson's Formula Covergence to True Integral with Respect to N-partitions")); % plot title
 xlabel('N')                                         % x-axis label
 ylabel('Integration Values')                        % y-axis label
+saveas(gcf, fullfile(folder, sprintf('SimpsonFormConv')), 'jpg');
 
 % Convergence plot showing Composite Simpson's Error nearing y=0
 figure('Name', 'Composite Simpson Formula Error Convergence')         % figure title              
@@ -137,3 +139,4 @@ grid on;                                            % turn grids on
 title(sprintf('Composite Simpson Formula Covergence to 0 with Respect to N-partitions')); % plot title
 xlabel('N')                                         % x-axis label
 ylabel('Error Yielded by Integration Values')       % y-axis label
+saveas(gcf, fullfile(folder, sprintf('ErrorSimpsonFormConv')), 'jpg');
