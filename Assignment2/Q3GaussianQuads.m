@@ -24,5 +24,3 @@ grid on;                                            % show grid
 title(sprintf('Gaussian Covergence to True Integral with respect to N-partitions')); % plot title
 xlabel('N')                                         % x-axis label
 ylabel('Integration Values')                        % y-axis label
-
-    

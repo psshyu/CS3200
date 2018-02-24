@@ -11,6 +11,7 @@ integralTrue = zeros(numel(N),1);
 errorTrap = zeros(numel(N),1);
 errorSimpson = zeros(numel(N),1);
 errorRichardson = zeros(numel(N),1);
+zeroError = zeros(numel(N),1);
 
 syms x                                  % define symbolic variables
 f = 1+sin(x).*cos(2.*x./3).*sin(4.*x);  % symbolic function
@@ -56,11 +57,12 @@ for idx = 1:numel(N)                % for loop to go thru all N-values
     errorSimpson(idx) = ((b - a)/2880).*(delta_x_simpson.^4).*f4_eta;
     
     % Error Calculations Using Richardson's Exterpolation
-    [xTrap2N, wTrap2N] = QuadSchemeTrapezoid(a,b,N_parts*2);  % Trapezoid Rule pairs with 2*N subintervals
-    [xSimp2N, wSimp2N] = QuadSchemeSimpson(a,b,N_parts*2);    % Simpson's Formula pairs with 2*N subintervals
-    
-    
-    
+    [xTrap2N, wTrap2N] = QuadSchemeTrapezoid(a,b,N_parts*2);  % Trapezoid Rule pairs w/ 2*N subintervals
+    [xSimp2N, wSimp2N] = QuadSchemeSimpson(a,b,N_parts*2);    % Simpson's Formula pairs w/ 2*N subintervals
+    integralTrap2N(idx) = weightPairSum(func, xTrap2N, wTrap2N); % Trapezoid sum w/ 2N subintervals
+    integralSimp2N(idx) = weightPairSum(func, xSimp2N, wSimp2N); % Simpson's sum w/ 2N subintervals
+    errorTrapRichard = RichardsonExterp(integralTrap(idx), integralTrap2N(idx));
+    errorSimpRichard = RichardsonExterp(integralSimp(idx), integralSimp2N(idx));
 end
 
 % Error vectors via subtracting the exact integral by the composite
@@ -70,7 +72,7 @@ errorConvergeTrap = integralTrue - integralTrap;
 errorConvergeSimp = integralTrue - integralSimp;
 
 % generate plots
-% Convergence plot showing Composite Trapezoid Rule and the exact integral
+% Convergence plot showing Composite Midpoint Rule and the exact integral
 figure('Name', 'Midpoint Rule Convergence')         % figure title              
 plot(N, integralMid, '-', N, integralTrue, 'g');    % plotting Composite Midpoint against true integration
 legend show;                                        % show legends!
@@ -79,6 +81,16 @@ grid on;                                            % turn grids on
 title(sprintf('Composite Midpoint Rule Covergence to True Integral with Respect to N-partitions')); % plot title
 xlabel('N')                                         % x-axis label
 ylabel('Integration Values')                        % y-axis label
+
+% Convergence plot showing Composite Midpoint Rule Error nearing y=0
+figure('Name', 'Midpoint Rule Convergence')         % figure title              
+plot(N, errorConvergeMid, '-');                     % plotting Composite Midpoint against true integration
+legend show;                                        % show legends!
+legend('Composite Midpoint Rule Error');            % set legends
+grid on;                                            % turn grids on
+title(sprintf('Composite Midpoint Rule Covergence to 0 with Respect to N-partitions')); % plot title
+xlabel('N')                                         % x-axis label
+ylabel('Error Yielded by Integration Values')       % y-axis label
 
 % Convergence plot showing Composite Trapezoid Rule and the exact integral
 figure('Name', 'Trapezoid Rule Convergence')        % figure title              
@@ -89,6 +101,16 @@ grid on;                                            % turn grids on
 title(sprintf('Composite Trapezoid Rule Covergence to True Integral with Respect to N-partitions')); % plot title
 xlabel('N')                                         % x-axis label
 ylabel('Integration Values')                        % y-axis label
+
+% Convergence plot showing Composite Trapezoid Rule Error nearing y=0
+figure('Name', 'T Rule Convergence')         % figure title              
+plot(N, errorConvergeMid, '-');                     % plotting Composite Midpoint against true integration
+legend show;                                        % show legends!
+legend('Composite Midpoint Rule Error');            % set legends
+grid on;                                            % turn grids on
+title(sprintf('Composite Midpoint Rule Covergence to 0 with Respect to N-partitions')); % plot title
+xlabel('N')                                         % x-axis label
+ylabel('Error Yielded by Integration Values')       % y-axis label
 
 % Convergence plot showing Composite Trapezoid Rule and the exact integral
 figure('Name', "Simpson's Rule Convergence")        % figure title                 
