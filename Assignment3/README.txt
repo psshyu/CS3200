@@ -6,7 +6,7 @@
 
 Please extract ALL files from the ZIP! As requested, figures and plots may 
 be found in the output folder, while the script and any dependent functions 
-may be found in the functions folder.
+may be found in the functions folder. 
 
 ***********************
  Compiling and Running
@@ -19,10 +19,13 @@ to check the correctness of my handiwork.
 
 *Question 3*
 Question 3 was asserted and explained in the written report, with the
-calculations verified using MatLab methods in the q3.m script.
+calculations verified using MatLab methods in the q3.m script. 
 
 *Question 4*
 Question 4 may be viewed as two-parts: first, computing the condition numbers and; 
 second, solving the system of equations with given values for a,n,H1, and Hr.
 The solution for the first part resides in q4cond.m, while the solution
-for the second part resides in q4iterref.m. 
+for the second part resides in q4iterref.m.
+
+So, really, anything that is of substance that's run via main would be 
+the scripts associated with Questions 3 & 4.
