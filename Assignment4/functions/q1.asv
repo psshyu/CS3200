@@ -2,12 +2,11 @@
 clear all;
 
 n = 8;  % set some number of iterations , may need adjusting
-
-% pair of equations to solve
+%f = inline ( ’[x (1)^3+ x (2) -1 ; x (2)^3 - x (1)+1] ’); % the vector function
+% the matrix of partial derivatives
+%Df = inline ( ’ [3* x (1)^2 , 1 ; -1, 3* x (2)^2] ’);
 f1 = @(x,y) (x^3+y-1);
 f2 = @(x,y) (y^3-x-1);
-
-% initial values for iteration
 x = 1.0;
 y = 0.1;
 % starting guess
