@@ -1,6 +1,3 @@
-% mymultnewton
-clear all;
-
 n = 100;  % set some number of iterations , may need adjusting
 n_space = linspace(1,100,100);
 

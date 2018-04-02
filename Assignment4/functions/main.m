@@ -1,7 +1,5 @@
 q1;
+hold on;
 q2;
+hold on;
 q3;
-hold on;
-q4cond;
-hold on;
-q4iterref
