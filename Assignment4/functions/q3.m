@@ -3,9 +3,11 @@ n_space = linspace(1,n,n);
 
 % initial values for iteration
 x_values = zeros(2,n);
-x_values(1,1) = 401;
-x_values(2,1) = 401;
-
+x_values(1,1) = 400;
+x_values(2,1) = 400;
+fun = @root2d;
+x0 = [x_values(1,1),x_values(2,1)];
+exact = fsolve(fun,x0);
 % pair of equations to solve
 % from here on out, x = x1 and y = x2 in the assignment
 syms x y;               % create the symbols for functions
