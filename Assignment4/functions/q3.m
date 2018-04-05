@@ -34,7 +34,7 @@ for i = 400:600                      % initial values, starting from 400
 end
 
 figure('Name', 'x-values for each Iteration')         % figure title              
-mesh(n_space, x_inits, x_values(:,:,:));
+plot3(n_space, x_inits, x_values(1,:,:));
 %{
 plot(n_space, a(x_values(1,:)), 'o-', n_space, d(x_values(2,:)), '.-.');                     % plotting Composite Midpoint error against error = 0
 legend show;                                        % show legends!
