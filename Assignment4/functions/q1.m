@@ -39,11 +39,11 @@ end
 %test = f1(x_values(1,1:n), x_values(2,1:n));
 n_space = linspace(1,n,n);
 
-figure('Name', 'x-values for each Iteration')         % figure title              
+figure('Name', 'Convergence of Functions f1 and f2 with Respect to Number of Iterations')         % figure title              
 plot(n_space, f1(x_values(1,1:n), x_values(2,1:n)), 'o-', n_space, f2(x_values(1,1:n), x_values(2,1:n)), '.-.');                     % plotting Composite Midpoint error against error = 0
 legend show;                                        % show legends!
-%legend('Composite Midpoint Rule Error');            % set legends
+legend('f1(x1, x2)','f2(f1, f2)');            % set legends
 grid on;                                            % turn grids on
-%title(sprintf('Composite Composite Midpoint Rule Error Covergence to 0 with Respect to N-partitions')); % plot title
+title(sprintf('Convergence of Functions f1 and f2 with Respect to Number of Iterations')); % plot title
 xlabel('Iteration Number')                                         % x-axis label
-ylabel('values of x')       % y-axis label
+ylabel('Function Values')       % y-axis label
