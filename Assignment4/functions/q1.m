@@ -12,8 +12,8 @@ x_values(2,1) = 120;
 % pair of equations to solve
 % from here on out, x = x1 and y = x2 in the assignment
 syms x y;               % create the symbols for functions
-f1 = @(x,y) (x^3+y-1);  % f1
-f2 = @(x,y) (y^3-x-1);  % f2
+f1 = @(x,y) (x.^3.+y-1);  % f1
+f2 = @(x,y) (y.^3.-x-1);  % f2
 
 % Calculate the entries for the Jacobian matrix
 a = matlabFunction(diff(f1(x,y),x)); % df1_dx
@@ -36,10 +36,11 @@ for i = 1:n-1
     end
 end
 
+%test = f1(x_values(1,1:n), x_values(2,1:n));
 n_space = linspace(1,n,n);
 
 figure('Name', 'x-values for each Iteration')         % figure title              
-plot(n_space, a(x_values(1,1:n)), 'o-', n_space, d(x_values(2,1:n)), '.-.');                     % plotting Composite Midpoint error against error = 0
+plot(n_space, f1(x_values(1,1:n), x_values(2,1:n)), 'o-', n_space, f2(x_values(1,1:n), x_values(2,1:n)), '.-.');                     % plotting Composite Midpoint error against error = 0
 legend show;                                        % show legends!
 %legend('Composite Midpoint Rule Error');            % set legends
 grid on;                                            % turn grids on
