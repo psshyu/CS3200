@@ -31,10 +31,10 @@ end
 
 n_space = linspace(1,n,n);
 figure('Name', 'Convergence of Function f with Respect to Number of Iterations')         % figure title              
-plot(n_space, f(x_values(1,1:n)), 'o-');            % plotting Composite Midpoint error against error = 0
+plot(n_space, f(x_values(1,1:n)), 'o-');            % plotting convergence against error = 0
 legend show;                                        % show legends!
 legend('Function f');                               % set legends
 grid on;                                            % turn grids on
 title(sprintf('Convergence of Function f with Respect to Number of Iterations')); % plot title
-xlabel('Iteration Number')                                         % x-axis label
+xlabel('Iteration Number') % x-axis label
 ylabel('Function f')       % y-axis label

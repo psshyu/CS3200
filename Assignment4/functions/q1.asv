@@ -6,7 +6,7 @@ e = 10^-15; % acceptable error threshold
 
 % initial values for iteration
 x_values = zeros(2,n);          % array to hold x1 and x2 values
-x_values(:,1) = [1 0.1];        % init (x1, x2) 
+x_values(:,1) = [10 ];        % init (x1, x2) 
 
 
 % pair of equations to solve
