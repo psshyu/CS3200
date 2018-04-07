@@ -22,11 +22,9 @@ with the starting values of x.
 Question 2 are split into two parts. q2_1.m represents the approach where
 x2 was eliminated from f2 via substitution and a solution was obtained.
 q2_2.m is the portion where we had to attempt to solve the system at 3 
-different initial values of x using fsolve; for this one, please ensure
-that fsolver.m
+different initial values of x using fsolve; for this 
 
 *Question 3*
-Question 3's main output where the conclusions were drawn from are located
-in the table T under the Workspace; it is also located in the output
-directory as Q3output.mat
+Question 3 was asserted and explained in the written report, with the
+calculations verified using MatLab methods in the q3.m script. 
 
