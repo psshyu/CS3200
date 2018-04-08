@@ -1,4 +1,4 @@
-q1;
+forward_eulersol;
 hold on;
 q2_1;
 hold on;
