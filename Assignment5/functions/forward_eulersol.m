@@ -25,21 +25,25 @@ for nruns = 1:7
     Tc = zeros(npoints,1); % this initializes the vector y to being all zeros
     t = zeros(npoints,1);
     Texact = zeros(npoints,1);
+    Tode23 = zeros(npoints,1);
 
     Tc(1) = Tc0; % the initial condition
     t(1) = 0.0;
     Texact(1) = Tc0; % initial condition is exact
-
-    for step=1:npoints-1 % loop over the timesteps
+    Tode23(1) = Tc0;
+    
+    for step = 1:npoints-1 % loop over the timesteps
+        % Using Tsexact
         Tc(step+1) = Tc(step) - dt*r*(Tc(step)-Ts);
         t(step+1) = t(step) + dt;
-
         Texact(step+1) = Tsexact(t(step+1),Tc0,r,Ts); 
-       
+        
+        % Using the ODE23 method
+        Tode23(step+1) = ODE23(t(step), Tode23(step), r, dt);
+        %
     end
 
-    %lot(t,Tc,'Color',colorstring(nruns))
-    plot(t,Tc)
+    plot(t,Tc);
     hold all
 
     %********************************************************************
