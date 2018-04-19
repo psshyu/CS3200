@@ -1,6 +1,6 @@
 %% To make my life easier, the y term is renamed as Tc
 
-function Tcnext = ODE23(t, Tc, r, h)
+function [Error, Tcnext] = ODE23(t, Tc, r, h)
     Ts = 19;
     
     syms x y;

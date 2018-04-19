@@ -1,0 +1,66 @@
+% ODE23 method for dTc/dt = -r *(Tc - Ts)
+
+clear all
+
+Tc0 = 84; % init coffe temp
+r = 0.025;  % r-value
+Ts = 19.0;  % ambient temp
+
+% vectors to capture error output
+firsterr = zeros(7,1); % error after 1st step
+lasterr  = zeros(7,1); % error at last step
+hlogs    = zeros(7,1); 
+
+figure('Name', sprintf('ODE23 method'))         % figure title              
+subplot(2,1,1) % plot for temp and time
+
+for nruns = 1:7
+    % 7 iterations for each h-step size
+    if(nruns == 1)dt = 30.0;end
+    if(nruns == 2)dt = 15.0;end
+    if(nruns == 3)dt = 10.0;end
+    if(nruns == 4)dt = 5.0;end
+    if(nruns == 5)dt = 1.0;end
+    if(nruns == 6)dt = 0.5;end
+    if(nruns == 7)dt = 0.25;end
+
+    npoints = int64(300.0/dt);
+
+    % this initializes the vector y to being all zeros
+    t = zeros(npoints,1);
+    Tode23 = zeros(npoints,1);
+    Texact = zeros(npoints,1);
+    
+    % the initial conditions
+    t(1) = 0.0;
+    Tode23(1) = Tc0;
+    Texact(1) = Tc0; 
+    
+    for step = 1:npoints-1 % loop over the timesteps
+        t(step+1) = t(step) + dt;
+        Tode23(step+1) = ODE23(t(step), Tode23(step), r, dt);
+        Texact(step+1) = Tsexact(t(step+1),Tc0,r,Ts); % Analytical exact
+    end
+
+    plot(t,Tode23); % plot each ODE23 solution
+    hold all
+    plot(t,Texact); % plots the exact solution (default plot is in blue, solid line)
+    legend('dt=30','dt=15','dt=10','dt=5','dt=1','dt=0.5','dt=0.25','Exact')
+    xlabel('Time ') % x-axis label
+    ylabel('Temperature Ts ') % y-axis label
+    
+    firsterr(nruns) = abs(Texact(2) - Tode23(2)); % error after 1st step
+    lasterr(nruns)  = abs(Texact(npoints)-Tode23(npoints)); % error at las
+    hlogs(nruns)    = dt;
+end
+
+rateFirstTsexact = (log(firsterr(1))-log(firsterr(6)))/(log(hlogs(1))-log(hlogs(6)));
+rateLastTsexact  = (log(lasterr(1))-log(lasterr(6)))/(log(hlogs(1))-log(hlogs(6)));
+
+%fprintf(' first rate %f6.3  last rate %f6.3',rateFirstTsexact,rateLastTsexact)
+%figure('Name', sprintf('Errors = (%1f %1f)'))         % figure title              
+subplot(2,1,2)
+loglog(hlogs,firsterr(:,1),hlogs,lasterr(:,1))
+xlabel('log(dt)')
+ylabel('log(error)')
+legend('first step','end of integration')
