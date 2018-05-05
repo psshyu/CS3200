@@ -2,11 +2,9 @@
 for n = 7:10
     x = zeros(n, 2);
     [A, b] = generateA_b(n);
-    t = tic;
+    t = cputim;
     x(:, 1) = pentsolve(A, b);
-    fullSolverTime = toc(t);
-    
-    t = tic;
+    fullSolverTime = cputime - t
+    t = cputime;
     x(:, 2) = A\b;
-    matlabTime = toc(t);
 end
