@@ -24,7 +24,7 @@ of the matlab files associated with all 3 questions of the assignment.
 
 Question 1 asks us to form the backbone by generating A and b given a value
 n. The generation of A and b is done through the script generateA_b.m, and
-its implementation may be viewed there. 
+its 
 
 Question 2 is split into 2 parts: q2_1.m has the substitution method 
 where x2 is eliminated and solved as 1 equation. q2_2.m utilizes fsolve to 
