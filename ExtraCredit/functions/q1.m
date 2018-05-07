@@ -1,6 +1,6 @@
 
 from_n = 7; % starting n value
-to_n = 8000;  % ending n value
+to_n = 500;  % ending n value
 nCount = 1; % a counter to increment n; tabling purposes
 timings = zeros(to_n-from_n+1, 3); % matrix to store timing information
 
@@ -23,3 +23,10 @@ for n = from_n:to_n  % increment through the designated n-range
     
     nCount = nCount + 1;        % increment n
 end
+
+figure(1);  % error plot
+loglog(timings(:, 1), timings(:, 2), timings(:, 1), timings(:, 3))
+title(sprintf('Run times of pentsolve and matlab algorithm'));
+xlabel('log(n)')
+ylabel('log(timings)')
+legend('pentsolve', 'MatLab')
